@@ -81,7 +81,7 @@ variable "datacenter" {
 
 <pre>
 module "Test-Windows" {
-  source                = "../Windows"
+  source                = "../Windows-module"
   template_name         = "TEMPLATE_W2K16"
   name                  = "Test-Windows"
   datastore             = "Datastore01"
@@ -132,7 +132,7 @@ We declare a module for each of the servers that we want to deploy, in this case
 
 
 <pre><code>module "Test-Windows" {
-  source                = "../Windows"
+  source                = "../Windows-module"
   template_name         = "TEMPLATE_WINDOWS2016"
   resource_pool         = "Production/Resources"
   name                  = "Test-Windows"
@@ -159,7 +159,7 @@ We declare a module for each of the servers that we want to deploy, in this case
 }
 
 module "Test-Linux" {
-  source                = "../Linux"
+  source                = "../Linux-module"
   resource_pool         = "Production/Resources"
   template_name         = "TEMPLATE_UBUNTU_1804_LTS"
   name                  = "Test-Linux"
