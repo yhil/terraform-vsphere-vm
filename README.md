@@ -12,7 +12,7 @@ Usefull documentation to work with this repository:
 
 # Variables
 
-Required column mean if you need to set a value to the variable in `main.tf`. In fact if there is a default value, you don't need to declare the variable in the `main.tf`.
+***If a variable is not required, that mean there is no default value in Linux or Windows module so you need to set the value of the variable in the `main.tf` file used for your deployments.***
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|

@@ -7,7 +7,7 @@ provider "vsphere" {
 
 
 module "Test-Windows" {
-  source                = "../Windows"
+  source                = "../Windows-module"
   template_name         = "TEMPLATE_WINDOWS2016"
   resource_pool         = "Production/Resources"
   name                  = "Test-Windows"
@@ -34,7 +34,7 @@ module "Test-Windows" {
 }
 
 module "Test-Linux" {
-  source                = "../Linux"
+  source                = "../Linux-module"
   resource_pool         = "Production/Resources"
   template_name         = "TEMPLATE_UBUNTU_1804_LTS"
   name                  = "Test-Linux"
