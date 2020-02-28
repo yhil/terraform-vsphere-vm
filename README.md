@@ -56,7 +56,7 @@ Process to deploy a virtual machine with terraform-vsphere-virtual-machine:
 ### Modify default variables from vsphere-module
 
 
-You need to modify the most usefull default values in ```Linux\vars.tf``` and ```Windows\vars.tf``` from the variables listed below to suit with your environment. All of those are not required to have a successful deployment but are usefull to manage them.
+You need to modify the most usefull default values in ```Linux-module\vars.tf``` and ```Windows-module\vars.tf``` from the variables listed below to match with your environment. All of those are not required to have a successful deployment but are usefull to manage them.
 
 - datacenter => vSphere datacenter
 - resource_pool => vSphere Cluster
@@ -66,7 +66,7 @@ You need to modify the most usefull default values in ```Linux\vars.tf``` and ``
 - dns_servers => DNS Servers
 
 
-You change the default value of the variables in ```Windows\vars.tf``` or ```Linux\vars.tf```:
+You change the default value of the variables in ```Windows-module\vars.tf``` or ```Linux-module\vars.tf```:
 
 <pre>
 variable "datacenter" {
@@ -77,7 +77,7 @@ variable "datacenter" {
 }
 </pre>
  
- Or you can overwrite the default value from variable.tf by declare the value in the ```main.tf``` in vsphere-live:
+ Or you can overwrite the default value from variable.tf by declare the value in the ```Deployment\main.tf``` in vsphere-live:
 
 <pre>
 module "Test-Windows" {
@@ -92,7 +92,7 @@ module "Test-Windows" {
   <b>resource_pool			= "Development/Resources"</b>
 </pre>
   
-### Set your vSphere by  updating the file `vars.tf`
+### Set your vSphere by  updating the file `Deployment\vars.tf`
 
 The provider can't be set up in the module so you need to declare those variables to connect to the vSphere.
 Update the variable "vsphere_vcenter" with the name or ip of your vCenter.
@@ -125,7 +125,7 @@ variable "aduser_password" {
 }
 </pre></code>
 
-### Define the Virtual machines by updating the file `main.tf`
+### Define the Virtual machines by updating the file `Deployment\main.tf`
 
 Here we are interested by the two modules sections.
 We declare a module for each of the servers that we want to deploy, in this case: Test-Windows, Test-Linux
@@ -180,7 +180,7 @@ module "Test-Linux" {
 
 
 ### Run the deployment
-1. Open a command shell and move to the directory where the `main.tf` and `vars.tf` belongs to.
+1. Open a command shell and move to the Deployment directory where the `main.tf` and `vars.tf` belongs to.
 1. Run the command ```terraform init``` to initialize the bakend, the module and the plugin
 1. Run the command ```terraform plan``` to see the changes who will be apply by your configuration
 1. Run the command ```terraform apply``` to apply the changes
